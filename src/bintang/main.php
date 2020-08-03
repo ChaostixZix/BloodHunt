@@ -2,10 +2,8 @@
 
 namespace bintang;
 
-use bintang\commands\MenuCommand;
-use bintang\commands\SpawnCommand;
+use bintang\commands\Claim;
 use bintang\listener\eventListener;
-use bintang\listener\joinListener;
 use pocketmine\event\Listener;
 use pocketmine\plugin\PluginBase;
 
@@ -20,7 +18,7 @@ class main extends PluginBase implements Listener{
     public function registerCommands()
     {
         $this->getServer()->getCommandMap()->registerAll("bintang", [
-            
+            new Claim($this)
         ]);
     }
 
