@@ -25,12 +25,18 @@ class Claim extends Command {
         {
             $item = $sender->getInventory()->getItemInHand();
             $lore = $item->getLore();
-            if($lore[0] == TextFormat::DARK_RED.TextFormat::BOLD."BloodHunter Item")
+            if(count($lore) > 0)
             {
-                $sender->getInventory()->removeItem($item);
-                EconomyAPI::getInstance()->addMoney($sender, $lore[1]);
+                if($lore[0] == TextFormat::DARK_RED.TextFormat::BOLD."BloodHunter Item")
+                {
+                    $sender->getInventory()->removeItem($item);
+                    EconomyAPI::getInstance()->addMoney($sender, $lore[1]);
+                }
+                $sender->sendMessage(TextFormat::GOLD . "Kamu berhasil claim Blood");
+                return;
             }
-            $sender->sendMessage(TextFormat::GOLD . "Kamu berhasil claim Blood");
+            $sender->sendMessage(TextFormat::GOLD . "Harap memegang blood");
+            return;
         }
     }
 }
