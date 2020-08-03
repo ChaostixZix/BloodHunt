@@ -53,7 +53,8 @@ class eventListener implements Listener
                 );
                 $damager->getInventory()->addItem($item);
                 $damager->getLevel()->addSound(new LaunchSound($damager->getLocation()));
-                $damager->sendTitle(TextFormat::GOLD."You killed " . $player->getName());
+                $damager->sendTitle(TextFormat::GOLD."You killed");
+                $damager->sendSubTitle(TextFormat::RED.$player->getName());
             }
         }
     }

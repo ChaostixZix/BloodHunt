@@ -14,7 +14,7 @@ class Claim extends Command {
     private $plugin;
 
     public function __construct(main $plugin){
-        parent::__construct("claim", "Claim darah bloodhunt", "/claim");
+        parent::__construct("bclaim", "Claim darah bloodhunt", "/claim");
         $this->setPermission("bloodhunt.bintang");
         $this->plugin = $plugin;
     }
