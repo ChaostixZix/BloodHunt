@@ -32,7 +32,7 @@ class Claim extends Command {
                     $sender->getInventory()->removeItem($item);
                     EconomyAPI::getInstance()->addMoney($sender, $lore[1]);
                 }
-                $sender->sendMessage(TextFormat::GOLD . "Kamu berhasil claim Blood");
+                $sender->sendMessage(TextFormat::GOLD . "Kamu berhasil claim Blood dan mendapat ".TextFormat::GREEN." ".$lore[1].TextFormat::AQUA."K".TextFormat::GOLD."Coin");
                 return;
             }
             $sender->sendMessage(TextFormat::GOLD . "Harap memegang blood");

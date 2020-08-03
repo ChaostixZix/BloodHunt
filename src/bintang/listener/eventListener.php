@@ -14,6 +14,7 @@ use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerDeathEvent;
 use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\item\Item;
+use pocketmine\level\sound\LaunchSound;
 use pocketmine\Player;
 use pocketmine\utils\TextFormat;
 use Scarce\NPCFormAPI\NpcForm;
@@ -51,6 +52,8 @@ class eventListener implements Listener
                     ]
                 );
                 $damager->getInventory()->addItem($item);
+                $damager->getLevel()->addSound(new LaunchSound($damager->getLocation()));
+                $damager->sendTitle(TextFormat::GOLD."You killed " . $player->getName());
             }
         }
     }
